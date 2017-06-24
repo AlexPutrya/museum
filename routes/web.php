@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('museum.main');
+// });
+
+Route::get('/', 'Museum\MainController');
