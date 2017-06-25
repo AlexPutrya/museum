@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Museum;
 
+use App;
 use App\Http\Controllers\Controller;
 
 class MainController extends Controller

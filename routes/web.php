@@ -12,7 +12,10 @@
 */
 
 // Route::get('/', function () {
+//     $locale = App::getLocale();
 //     return view('museum.main');
 // });
 
 Route::get('/', 'Museum\MainController');
+
+Route::get('/{locale}', 'LangController@switchLang');
