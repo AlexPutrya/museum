@@ -1,0 +1,29 @@
+/*Выбор языка*/
+.languages li{
+    list-style: none;
+    display: inline;
+}
+
+.menu {
+    height: 30px;
+}
+nav{
+    position: absolute;
+    right: 5px;
+}
+nav, nav ul{
+    display: inline-block;
+}
+
+nav li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 5px 0 5px;
+    text-align: right;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.main-banner {
+    width: 100%;
+}
