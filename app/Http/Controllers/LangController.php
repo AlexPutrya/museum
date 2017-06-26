@@ -13,7 +13,9 @@ class LangController extends Controller
 {
     public function switchLang($lang)
     {
-        Session::put('applocale', $lang);
+        if(array_key_exists($lang, Config::get('languages'))){
+            Session::put('applocale', $lang);
+        }
         return Redirect::back();
     }
 }

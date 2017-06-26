@@ -18,4 +18,4 @@
 
 Route::get('/', 'Museum\MainController');
 
-Route::get('/{locale}', 'LangController@switchLang');
+Route::get('lang/{locale}', 'LangController@switchLang');

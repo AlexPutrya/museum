@@ -2,13 +2,14 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Музей дальней авиации - @yield('title')</title>
+        <title>Музей дальней авиации</title>
+        <link rel="stylesheet" href="{{ asset('/css/app.css')}}">
     </head>
     <body>
         <ul>
-            <li><a href="/en">EN</a></li>
-            <li><a href="/ru">RU</a></li>
-            <li><a href="/ua">UA</a></li>
+            <li><a href="lang/en">EN</a></li>
+            <li><a href="lang/ru">RU</a></li>
+            <li><a href="lang/ua">UA</a></li>
         </ul>
         <nav>
             <ul>
