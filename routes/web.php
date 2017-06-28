@@ -11,11 +11,10 @@
 |
 */
 
-// Route::get('/', function () {
-//     $locale = App::getLocale();
-//     return view('museum.main');
-// });
-
 Route::get('/', 'Museum\MainController');
 
+// Изменение локали
 Route::get('lang/{locale}', 'LangController@switchLang');
+
+// Страница админ панели
+Route::get('admin', 'AdminPanel\AdminController');
