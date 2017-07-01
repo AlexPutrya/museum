@@ -7,5 +7,4 @@
 
 require('./bootstrap');
 
-// import Example from './components/Example';
-import './components/Example';
+import './components/Form';

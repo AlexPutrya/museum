@@ -10383,7 +10383,7 @@ module.exports = getIteratorFn;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Example__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Form__ = __webpack_require__(109);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -10393,7 +10393,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __webpack_require__(108);
 
-// import Example from './components/Example';
 
 
 /***/ }),
@@ -11310,32 +11309,180 @@ if (token) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(130);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
-//
-// class Example extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 <h1> Cool, School </h1>
-//             </div>
-//         );
-//     }
-// }
-//
-// export default Example;
-//
-// if (typeof window !== 'undefined') {
-//     window.React = React;
-// }
-//
-// ReactDOM.render(<Example/>, document.getElementById('example'));
-var element = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-  'h1',
-  null,
-  'Hello, world'
-);
-__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(element, document.getElementById('example'));
+
+
+// Общая форма
+
+var Form = function (_React$Component) {
+    _inherits(Form, _React$Component);
+
+    function Form() {
+        _classCallCheck(this, Form);
+
+        return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+    }
+
+    _createClass(Form, [{
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'form',
+                { action: '' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Photo, null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(UploadPhoto, null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'label',
+                        null,
+                        ' \u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 '
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u044D\u043A\u0441\u043F\u043E\u043D\u0430\u0442\u0430 (\u043D\u0435 \u0431\u0443\u0434\u0435\u0442 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0442\u0441\u044F \u043D\u0438\u0433\u0434\u0435)' })
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(TitleInput, null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Text, null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'button',
+                    { onClick: function onClick(e) {
+                            return _this2.handleClick(e, "John", "Заголовок 2");
+                        } },
+                    'Click me'
+                )
+            );
+        }
+    }]);
+
+    return Form;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+// место для фотографии
+
+
+var Photo = function (_Component) {
+    _inherits(Photo, _Component);
+
+    function Photo() {
+        _classCallCheck(this, Photo);
+
+        return _possibleConstructorReturn(this, (Photo.__proto__ || Object.getPrototypeOf(Photo)).apply(this, arguments));
+    }
+
+    _createClass(Photo, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '', alt: '', className: 'img-thumbnail' });
+        }
+    }]);
+
+    return Photo;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+// Кнопка загрузки фото
+
+
+var UploadPhoto = function (_Component2) {
+    _inherits(UploadPhoto, _Component2);
+
+    function UploadPhoto() {
+        _classCallCheck(this, UploadPhoto);
+
+        return _possibleConstructorReturn(this, (UploadPhoto.__proto__ || Object.getPrototypeOf(UploadPhoto)).apply(this, arguments));
+    }
+
+    _createClass(UploadPhoto, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'form-group' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'label',
+                    null,
+                    '\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u0444\u043E\u0442\u043E'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'file', className: 'form-control-file' })
+            );
+        }
+    }]);
+
+    return UploadPhoto;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+// Заголовок для статьи
+
+
+var TitleInput = function (_Component3) {
+    _inherits(TitleInput, _Component3);
+
+    function TitleInput() {
+        _classCallCheck(this, TitleInput);
+
+        return _possibleConstructorReturn(this, (TitleInput.__proto__ || Object.getPrototypeOf(TitleInput)).apply(this, arguments));
+    }
+
+    _createClass(TitleInput, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'form-group' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'label',
+                    null,
+                    ' \u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A '
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', placeholder: '\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A \u0434\u043B\u044F \u0441\u0442\u0440\u0430\u0438\u043D\u0438\u0446\u044B \u0441 \u044D\u043A\u0441\u043F\u043E\u043D\u0430\u0442\u043E\u043C' })
+            );
+        }
+    }]);
+
+    return TitleInput;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+// Текст статьи
+
+
+var Text = function (_Component4) {
+    _inherits(Text, _Component4);
+
+    function Text() {
+        _classCallCheck(this, Text);
+
+        return _possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).apply(this, arguments));
+    }
+
+    _createClass(Text, [{
+        key: 'render',
+        value: function render() {
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'form-group' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'label',
+                    null,
+                    '\u0422\u0435\u043A\u0441\u0442 \u0441\u0442\u0430\u0442\u044C\u0438'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'form-control', rows: '5' })
+            );
+        }
+    }]);
+
+    return Text;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Form, null), document.getElementById('form'));
 
 /***/ }),
 /* 110 */
