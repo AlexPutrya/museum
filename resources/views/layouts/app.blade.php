@@ -6,6 +6,8 @@
         <title>Музей дальней авиации</title>
         <link rel="stylesheet" href="{{ asset('/css/app.css')}}">
         <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
+        <script src="{{ asset('/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('/js/dropdown.js')}}"></script>
     </head>
     <body>
         <div class="container-fluid">
@@ -30,7 +32,13 @@
                         <nav class="header-nav">
                             <ul>
                                 <li><a href="#">{{ trans('navigation.main') }}</a></li>
-                                <li><a href="#">{{ trans('navigation.exhibits') }} <span class="caret"></span></a></li>
+                                <li id="drop"><a href="#">{{ trans('navigation.exhibits') }} <span class="caret"></span></a>
+                                    <ul class="submenu">
+                                        @foreach ($texts as $text)
+                                            <li><a href="/exhibits/{{$text->exhibit_id}}">{{$text->name}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
                                 <li><a href="#">{{ trans('navigation.history') }}</a></li>
                                 <li><a href="#">{{ trans('navigation.contacts') }}</a></li>
                             </ul>
