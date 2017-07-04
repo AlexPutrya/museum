@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Museum;
 
 use App\Http\Controllers\Controller;
-use App\Texts;
+use App\Exhibits;
 
 class ExhibitController extends Controller
 {
@@ -16,7 +16,7 @@ class ExhibitController extends Controller
     */
     public function __invoke($id)
     {
-        $texts = new Texts();
-        return view('museum.exhibit', ['exhibits' => $texts->get_exhibits_nav()]);
+        $table = new Exhibits();
+        return view('museum.exhibit', ['nav_exhibits' => $table->get_exhibits()]);
     }
 }

@@ -31,11 +31,13 @@
                     <div class="col-md-4 col-md-offset-7">
                         <nav class="header-nav">
                             <ul>
-                                <li><a href="#">{{ trans('navigation.main') }}</a></li>
+                                <li><a href="{{ route('main') }}">{{ trans('navigation.main') }}</a></li>
                                 <li id="drop"><a href="#">{{ trans('navigation.exhibits') }} <span class="caret"></span></a>
                                     <ul class="submenu">
-                                        @foreach ($exhibits as $exhibit)
-                                            <li><a href="/exhibit/{{$exhibit->exhibit_id}}">{{$exhibit->name}}</a></li>
+                                        @foreach ($nav_exhibits as $exhibit)
+                                            @if (isset($exhibit->texts->name))
+                                                <li><a href="/exhibit/{{$exhibit->id}}">{{$exhibit->texts->name}}</a></li>
+                                            @endif
                                         @endforeach
                                     </ul>
                                 </li>

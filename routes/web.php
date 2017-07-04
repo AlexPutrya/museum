@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'Museum\MainController');
+Route::get('/', ['as'=>'main', 'uses'=>'Museum\MainController']);
 Route::get('/exhibit/{id}', 'Museum\ExhibitController');
 
 // Изменение локали
