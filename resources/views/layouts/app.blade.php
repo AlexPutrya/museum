@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Музей дальней авиации</title>
         <link rel="stylesheet" href="{{ asset('/css/app.css')}}">
-        <link rel="stylesheet" href="{{ asset('/css/style.css')}}">
+        <link rel="stylesheet" href="{{ asset('/css/layout.css')}}">
         <script src="{{ asset('/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('/js/dropdown.js')}}"></script>
     </head>
@@ -15,9 +15,9 @@
                 <div class="row">
                     <div class="col-md-2">
                         <ul class="languages">
-                            <li><a href="lang/en">EN</a></li>
-                            <li><a href="lang/ru">RU</a></li>
-                            <li><a href="lang/ua">UA</a></li>
+                            <li><a href="{{route('lang', ['parametr'=>'en'])}}">EN</a></li>
+                            <li><a href="{{route('lang', ['parametr'=>'ru'])}}">RU</a></li>
+                            <li><a href="{{route('lang', ['parametr'=>'ua'])}}">UA</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-md-offset-3">
@@ -34,8 +34,8 @@
                                 <li><a href="#">{{ trans('navigation.main') }}</a></li>
                                 <li id="drop"><a href="#">{{ trans('navigation.exhibits') }} <span class="caret"></span></a>
                                     <ul class="submenu">
-                                        @foreach ($texts as $text)
-                                            <li><a href="/exhibits/{{$text->exhibit_id}}">{{$text->name}}</a></li>
+                                        @foreach ($exhibits as $exhibit)
+                                            <li><a href="/exhibit/{{$exhibit->exhibit_id}}">{{$exhibit->name}}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -45,12 +45,11 @@
                         </nav>
                     </div>
                 </div>
+            </header>
+            @section('main')
                 <div class="row">
                     <img class="main-banner" src="{{ asset('/img/main_banner.jpg')}}" alt="">
                 </div>
-            </header>
-            @section('main')
-                <h1>Музей дальней авиации</h1>
             @show
             <footer>
                 <div class="row footer-nav">

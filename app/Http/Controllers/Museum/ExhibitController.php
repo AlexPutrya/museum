@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Museum;
 use App\Http\Controllers\Controller;
 use App\Texts;
 
-class MainController extends Controller
+class ExhibitController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | MainController
+    | ExhibitController
     |--------------------------------------------------------------------------
     |
-    | Контроллер для главной страницы
+    | Контроллер загрузки страницы экспоната на определенном языке
     |
     */
-    public function __invoke()
+    public function __invoke($id)
     {
         $texts = new Texts();
-        return view('museum.main', ['exhibits' => $texts->get_exhibits_nav()]);
+        return view('museum.exhibit', ['exhibits' => $texts->get_exhibits_nav()]);
     }
 }
