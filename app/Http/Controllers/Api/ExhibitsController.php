@@ -6,13 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Exhibits;
 
 class ExhibitsController extends Controller {
+    protected $table;
 
-    //Получаем данные из 2-х таблиц и подготавливаем в массив 
+    public function __construct(){
+        $this->table = new Exhibits();
+    }
+    //Получаем данные из 2-х таблиц и подготавливаем в массив
     public function get_exhibits(){
-        $table = new Exhibits();
-        foreach ($table->get_exhibits() as $exhibit) {
+        foreach ($this->table->get_all_exhibits() as $exhibit) {
             $data[] = ['id'=> $exhibit->id, 'visibility' => $exhibit->visibility, 'name' => $exhibit->texts->name ];
         }
-        return $data;
+        return response($data, 200);
+    }
+    // Изменяем видимость экспонат
+    public function visibility($id){
+        $this->table->change_visibility($id);
+        return response('', 200);
     }
 }

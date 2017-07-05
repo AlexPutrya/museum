@@ -17,6 +17,6 @@ class ExhibitController extends Controller
     public function __invoke($id)
     {
         $table = new Exhibits();
-        return view('museum.exhibit', ['nav_exhibits' => $table->get_exhibits()]);
+        return view('museum.exhibit', ['nav_exhibits' => $table->get_visibility_exhibits()]);
     }
 }

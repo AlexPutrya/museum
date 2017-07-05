@@ -35,7 +35,7 @@ $(document).ready(function(){
     //Видимость экспоната
     function change_visibility(id){
         $.ajax({
-            url: 'api/exhibit/'+id+'/visibilitu',
+            url: 'api/exhibit/'+id+'/visibility',
             type: "PATCH",
             success: function(){
                 return true;

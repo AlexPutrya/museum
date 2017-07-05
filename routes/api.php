@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/exhibits', 'Api\ExhibitsController@get_exhibits');
+Route::patch('/exhibit/{id}/visibility', 'Api\ExhibitsController@visibility');
