@@ -30,7 +30,7 @@
                 <div id="form" class="col-md-6 col-md-offset-3">
                     <form>
                         <div class="photo">
-                            <img src="" alt="" class="img-thumbnail"/>
+                            <img src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
                         </div>
                         <div className="form-group">
                             <label>Загрузить фото</label>

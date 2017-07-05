@@ -6,7 +6,7 @@ $(document).ready(function(){
             type: 'GET',
             success: function(data){
                 $.each(data.exhibits, function(key, value){
-
+                    
                 });
             }
         });

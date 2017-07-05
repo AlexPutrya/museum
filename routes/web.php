@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', ['as'=>'main', 'uses'=>'Museum\MainController']);
+Route::get('/', 'Museum\MainController')->name('main');
+
 Route::get('/exhibit/{id}', 'Museum\ExhibitController');
 
 // Изменение локали
-Route::get('lang/{locale}', ['as'=>'lang', 'uses'=>'LangController@switchLang']);
+Route::get('lang/{locale}', 'LangController@switchLang')->name('lang');
 
 // Страница админ панели
 Route::get('admin', 'AdminPanel\AdminController');
