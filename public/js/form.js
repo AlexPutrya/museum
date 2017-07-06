@@ -1,4 +1,9 @@
 $(document).ready(function(){
+    // Загружаем страницу с очищенными полями и по умолчанию заданным русским языком для статьи
+    $('.exhibit-info').val('');
+    $("#name, #title, #text").attr('lang', 'ru');
+    $("a#ru").css({color: 'black'});
+
     var locale = {
         en: {name : '', title: '', text : ''},
         ru: {name : '', title: '', text : ''},
@@ -8,6 +13,8 @@ $(document).ready(function(){
     // Переключатель языка, получаем абревиатуру и передаем в функцию изменения формы
     $(".lang").click(function(e){
         e.preventDefault();
+        $(".lang").css({color: "#3097d1"});
+        $(this).css({color: 'black'});
         change_form($(this).attr('id'));
     });
 

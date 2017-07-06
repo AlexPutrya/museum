@@ -14,21 +14,21 @@
         <script src="{{ asset('/js/form.js')}}" type="text/javascript"></script>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="sidebar">
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <button  id="create" class="btn btn-default btn-lg"> Новый экспонат</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-12">
+                    <h2>Экспонаты</h2>
+                    <button  id="create" class="btn btn-block btn-info btn-m"> Новый экспонат</button>
                     <ul  id="exhibits_list" class="list-group">
                         {{-- выводим список экспонатов jquery  --}}
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid">
+
             <div class="row">
-                <div id="form" class="col-md-6 col-md-offset-3">
+                <div id="form" class="col-md-6 col-md-offset-5">
                     <form>
                         <ul class="languages">
                             <li><a class="lang" id="en" href="">en</a></li>
@@ -37,7 +37,7 @@
                         </ul>
                         <div class="form-group">
                             <label> Название </label>
-                            <input  id="name" lang="" type="text" class="form-control exhibit-info" placeholder="Название экспоната (не будет отображатся нигде)"/>
+                            <input  id="name" lang="" type="text" class="form-control exhibit-info" placeholder="Название экспоната (будет отображено в навигации)"/>
                         </div>
                         <div class="form-group">
                             <label> Заголовок </label>
@@ -54,7 +54,7 @@
                             <label>Текст статьи</label>
                             <textarea id="text"  lang=""  class="form-control exhibit-info" rows="5"></textarea>
                         </div>
-                        <button id="save" type="button" name="button">Save</button>
+                        <button id="save" type="button" name="button">Сохранить</button>
                     </form>
                 </div>
             </div>

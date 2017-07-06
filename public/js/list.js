@@ -10,7 +10,15 @@ $(document).ready(function(){
             success: function(data){
                 $("#exhibits_list .list-group-item").remove();
                 $.each(data, function(key, value){
-                    $("#exhibits_list").append('<div><li id="'+value.id+'" class="list-group-item">'+value.name+' <input toggle-id="'+value.id+'" class="switcher toggle-'+value.id+'" data-toggle="toggle" data-size="mini" data-onstyle="success" type="checkbox"></li>');
+                    $("#exhibits_list").append(
+                        '<li id="'+value.id+'" class="list-group-item">'+value.name+
+                            '<span class="pull-right">\
+                                <a href="">Редакт.</a>\
+                                <a href="">Удал.</a>\
+                                <input toggle-id="'+value.id+'" class="switcher toggle-'+value.id+'" data-toggle="toggle" data-size="mini" data-onstyle="success" type="checkbox">\
+                                </span>\
+                        </li>'
+                    );
                     if(value.visibility == 1){
                         $('.toggle-'+value.id).bootstrapToggle('on');
                     }else{
