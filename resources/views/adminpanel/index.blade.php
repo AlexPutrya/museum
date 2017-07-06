@@ -37,11 +37,11 @@
                         </ul>
                         <div class="form-group">
                             <label> Название </label>
-                            <input  id="name" type="text" class="form-control" placeholder="Название экспоната (не будет отображатся нигде)"/>
+                            <input  id="name" lang="" type="text" class="form-control exhibit-info" placeholder="Название экспоната (не будет отображатся нигде)"/>
                         </div>
                         <div class="form-group">
                             <label> Заголовок </label>
-                            <input id="title" type="text" class="form-control" placeholder="Заголовок для страиницы с экспонатом"/>
+                            <input id="title" lang="" type="text" class="form-control exhibit-info" placeholder="Заголовок для страиницы с экспонатом"/>
                         </div>
                         <div class="photo">
                             <img src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group">
                             <label>Текст статьи</label>
-                            <textarea id="text" class="form-control" rows="5"></textarea>
+                            <textarea id="text"  lang=""  class="form-control exhibit-info" rows="5"></textarea>
                         </div>
                         <button id="save" type="button" name="button">Save</button>
                     </form>
