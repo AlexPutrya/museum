@@ -17,6 +17,6 @@ class MainController extends Controller
     public function __invoke()
     {
         $table = new Exhibits();
-        return view('museum.main', ['nav_exhibits' => $table->get_exhibits()]);
+        return view('museum.main', ['nav_exhibits' => $table->get_visibility_exhibits()]);
     }
 }

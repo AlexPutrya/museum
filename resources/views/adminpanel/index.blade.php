@@ -11,6 +11,7 @@
         <script src="{{ asset('/js/bootstrap-toggle.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/js/create.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/js/list.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('/js/form.js')}}" type="text/javascript"></script>
     </head>
     <body>
         <div class="container-fluid">
@@ -29,25 +30,31 @@
             <div class="row">
                 <div id="form" class="col-md-6 col-md-offset-3">
                     <form>
+                        <ul class="languages">
+                            <li><a class="lang" id="en" href="">en</a></li>
+                            <li><a class="lang" id="ru" href="">ru</a></li>
+                            <li><a class="lang" id="ua" href="">ua</a></li>
+                        </ul>
+                        <div class="form-group">
+                            <label> Название </label>
+                            <input  id="name" type="text" class="form-control" placeholder="Название экспоната (не будет отображатся нигде)"/>
+                        </div>
+                        <div class="form-group">
+                            <label> Заголовок </label>
+                            <input id="title" type="text" class="form-control" placeholder="Заголовок для страиницы с экспонатом"/>
+                        </div>
                         <div class="photo">
                             <img src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
                         </div>
-                        <div className="form-group">
+                        <div class="form-group">
                             <label>Загрузить фото</label>
                             <input type="file" class="form-control-file"/>
                         </div>
                         <div class="form-group">
-                            <label> Название </label>
-                            <input type="text" class="form-control" placeholder="Название экспоната (не будет отображатся нигде)"/>
-                        </div>
-                        <div class="form-group">
-                            <label> Заголовок </label>
-                            <input type="text" class="form-control" placeholder="Заголовок для страиницы с экспонатом"/>
-                        </div>
-                        <div class="form-group">
                             <label>Текст статьи</label>
-                            <textarea class="form-control" rows="5"></textarea>
+                            <textarea id="text" class="form-control" rows="5"></textarea>
                         </div>
+                        <button id="save" type="button" name="button">Save</button>
                     </form>
                 </div>
             </div>
