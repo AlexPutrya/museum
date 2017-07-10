@@ -25,11 +25,8 @@ $(document).ready(function(){
                         $('.toggle-'+value.id).bootstrapToggle('off');
                     }
                 });
-                // снимаем все обработчики
-                $(".switcher").unbind('change');
-                // и заново вешаем новые обработчики так как функция будет часто вызыватся
-                // и чтоб обработчики не наслаивались
-                $("body").on('change','.switcher', function(){
+                // вешаем обработчик событий для изменения видимости экспоната
+                $('.switcher').change(function(){
                     var toggle_id = $(this).attr('toggle-id');
                     change_visibility(toggle_id);
                 });

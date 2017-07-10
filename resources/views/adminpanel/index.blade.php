@@ -10,7 +10,7 @@
         <script src="{{ asset('/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/js/bootstrap-toggle.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/js/create.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('/js/list.js')}}" type="text/javascript"></script>
+        {{-- <script src="{{ asset('/js/list.js')}}" type="text/javascript"></script> --}}
         <script src="{{ asset('/js/form.js')}}" type="text/javascript"></script>
     </head>
     <body>
@@ -43,16 +43,16 @@
                             <label> Заголовок </label>
                             <input id="title" lang="" type="text" class="form-control exhibit-info" placeholder="Заголовок для страиницы с экспонатом"/>
                         </div>
-                        <div class="photo">
-                            <img src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
-                        </div>
                         <div class="form-group">
+                            <div class="photo">
+                                <img src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
+                            </div>
                             <label>Загрузить фото</label>
                             <input type="file" class="form-control-file"/>
                         </div>
                         <div class="form-group">
                             <label>Текст статьи</label>
-                            <textarea id="text"  lang=""  class="form-control exhibit-info" rows="5"></textarea>
+                            <textarea id="text"  lang=""  class="form-control exhibit-info" rows="15"></textarea>
                         </div>
                         <button id="save" type="button" name="button">Сохранить</button>
                     </form>
