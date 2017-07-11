@@ -18,9 +18,9 @@ class CreateTextsTable extends Migration
             $table->integer('exhibit_id')->unsigned();
             $table->foreign('exhibit_id')->references('id')->on('exhibits');
             $table->char('lang', 2);
-            $table->string('title');
-            $table->longText('text');
-            $table->string('name');
+            $table->string('title')->nullable();
+            $table->longText('text')->nullable();
+            $table->string('name')->nullable();
         });
     }
 

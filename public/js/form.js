@@ -72,6 +72,7 @@ $(document).ready(function(){
     function show_form(id=''){
         $('#form').css('display','block');
         $("form").attr('id', id);
+        change_form('ru');
     }
     function hide_form(){
         $('#form').css('display','none');
