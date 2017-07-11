@@ -12,11 +12,18 @@ class ExhibitsController extends Controller {
     //Получаем данные из 2-х таблиц и подготавливаем в массив
     public function get_exhibits(){
         $exhibits = Exhibits::all();
+        $data = [];
         foreach ($exhibits as $exhibit) {
             $text = $exhibit->text()->where('lang', 'ru')->first();
             $data[] = ['id'=> $exhibit->id, 'visibility' => $exhibit->visibility, 'name' => $text->name ];
         }
         return response($data, 200);
+    }
+
+    //Получть тексты экспоната
+    public function get_exhibit($id){
+        $exhibit = Exhibits::find($id);
+        return $exhibit->text()->get();
     }
 
     // Изменяем видимость экспонат
@@ -36,14 +43,28 @@ class ExhibitsController extends Controller {
         $data = $request->input('locale');
         $exhibit = Exhibits::create();
         $exhibit->text()->saveMany([
-            new Texts(['lang'=>'ru', 'title'=>$data['ru']['title'], 'text'=>$data['ru']['text'], 'name'=>$data['ru']['name']]),
-            new Texts(['lang'=>'en', 'title'=>$data['en']['title'], 'text'=>$data['en']['text'], 'name'=>$data['en']['name']]),
-            new Texts(['lang'=>'ua', 'title'=>$data['ua']['title'], 'text'=>$data['ua']['text'], 'name'=>$data['ua']['name']])
+            new Texts(['lang'=>'ru', 'title'=>'', 'text'=>'', 'name'=>'...']),
+            new Texts(['lang'=>'en', 'title'=>'', 'text'=>'', 'name'=>'...']),
+            new Texts(['lang'=>'ua', 'title'=>'', 'text'=>'', 'name'=>'...'])
         ]);
+        return response(['id'=>$exhibit->id], 200);
+    }
+
+    //Редакитуем текст экспонат, пребираем цикл с данными где ключ => язык
+    public function edit(Request $request, $id){
+        $data = $request->input('locale');
+        $exhibit = Exhibits::find($id);
+        foreach ($data as $key => $value) {
+            $text = $exhibit->text()->where('lang', $key)->first();
+            $text->title = $data[$key]['title'];
+            $text->text = $data[$key]['text'];
+            $text->name = $data[$key]['name'];
+            $text->save();
+        }
         return response('', 200);
     }
 
-    // Удаляем єкспонат
+    // Удаляем экспонат
     public function delete($id){
         $exhibit = Exhibits::find($id);
         $exhibit->text()->delete();

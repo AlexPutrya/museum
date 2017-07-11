@@ -17,8 +17,12 @@ class PageController extends Controller {
         return view('museum.exhibit', ['nav_exhibits' => Navbar::categories()]);
     }
 
-    public function test(){
-        $exhibit = Exhibits::where('id', 25)->first();
-        var_dump($exhibit);
+    public function test($id){
+        $exhibit = Exhibits::find($id);
+        return $exhibit->text()->get();
+        // $exhibit = Exhibits::find($id);
+        // $exhibit->text()->delete();
+        // $exhibit->delete();
+        // return response('', 204);
     }
 }

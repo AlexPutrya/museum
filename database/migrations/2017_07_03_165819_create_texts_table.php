@@ -19,7 +19,7 @@ class CreateTextsTable extends Migration
             $table->foreign('exhibit_id')->references('id')->on('exhibits');
             $table->char('lang', 2);
             $table->string('title');
-            $table->string('text');
+            $table->longText('text');
             $table->string('name');
         });
     }

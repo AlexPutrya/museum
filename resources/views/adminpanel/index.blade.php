@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{{ asset('/css/adminpanel.css')}}">
         <script src="{{ asset('/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/js/bootstrap-toggle.min.js')}}" type="text/javascript"></script>
-        <script src="{{ asset('/js/create.js')}}" type="text/javascript"></script>
+        {{-- <script src="{{ asset('/js/create.js')}}" type="text/javascript"></script> --}}
         {{-- <script src="{{ asset('/js/list.js')}}" type="text/javascript"></script> --}}
         <script src="{{ asset('/js/form.js')}}" type="text/javascript"></script>
     </head>
