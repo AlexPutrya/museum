@@ -91,3 +91,16 @@ footer {
 .adress p{
     margin-left: 10px;
 }
+
+/*Страница с отдельным экспонатом*/
+.exhibit-photo {
+    width:300px;
+    height: 300px;
+}
+h2 {
+    text-align: center;
+}
+
+#text {
+    margin-bottom: 20px;
+}

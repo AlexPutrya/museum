@@ -182,4 +182,20 @@ $(document).ready(function(){
             }
         });
     });
+
+    // Загрузчик изображения для предпросмотра
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#photo').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Обраьотка загрузки изображения
+    $("#imgInpt").change(function(){
+        readURL(this);
+    });
 });

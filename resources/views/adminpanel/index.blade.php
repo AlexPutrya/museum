@@ -17,6 +17,7 @@
         <div class="sidebar">
             <div class="row">
                 <div class="col-md-12">
+                    <a href="{{ route('main') }}" target="_blank">На сайт</a>
                     <h2>Экспонаты</h2>
                     <button  id="create" class="btn btn-block btn-info btn-m"> Новый экспонат</button>
                     <ul  id="exhibits_list" class="list-group">
@@ -45,10 +46,10 @@
                         </div>
                         <div class="form-group">
                             <div class="photo">
-                                <img src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
+                                <img id="photo" src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
                             </div>
                             <label>Загрузить фото</label>
-                            <input type="file" class="form-control-file"/>
+                            <input  id="imgInpt" type="file" class="form-control-file"/>
                         </div>
                         <div class="form-group">
                             <label>Текст статьи</label>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Museum;
 use App\Http\Controllers\Controller;
 use App\Exhibits;
 use App\Helpers\Navbar;
+use App;
 
 class PageController extends Controller {
 
@@ -12,9 +13,11 @@ class PageController extends Controller {
         return view('museum.main', ['nav_exhibits' => Navbar::categories()]);
     }
 
-    public function exhibit(){
-        $table = new Exhibits();
-        return view('museum.exhibit', ['nav_exhibits' => Navbar::categories()]);
+    public function exhibit($id){
+        $lang = App::getLocale();
+        $exhibit = Exhibits::find($id);
+        $info = $exhibit->text()->where('lang', $lang)->first();
+        return view('museum.exhibit', ['nav_exhibits' => Navbar::categories(), 'info' => $info]);
     }
 
     public function test($id){
