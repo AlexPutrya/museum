@@ -20,12 +20,6 @@
                             <li><a href="{{route('lang', ['parametr'=>'ua'])}}">UA</a></li>
                         </ul>
                     </div>
-                    {{-- <div class="col-md-5 col-md-offset-3">
-                        <div id="info">
-                            <div class="time">Музей открыт с 9:00 до 17:00 кроме Пн. и Вт.</div>
-                            <div class="phone">+38(066)85-34-902</div>
-                        </div>
-                    </div> --}}
                     <div class="col-md-4 col-md-offset-3">
                         <p>Музей открыт с 9:00 до 17:00 кроме Пн. и Вт.</p>
                     </div>

@@ -14,7 +14,6 @@
 Route::get('/', 'Museum\PageController@main')->name('main');
 
 Route::get('/exhibit/{id}', 'Museum\PageController@exhibit');
-Route::get('/test/{id}', 'Museum\PageController@test');
 
 // Изменение локали
 Route::get('lang/{locale}', 'LangController@switchLang')->name('lang');

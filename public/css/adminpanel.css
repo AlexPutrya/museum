@@ -12,7 +12,8 @@ h2 {
     position: fixed;
     background-color: rgba(0,0,0,0.05);
 }
-#form {
+
+form {
     display: none;
     background-color: white;
     padding: 10px;
@@ -33,4 +34,11 @@ h2 {
 a {
     outline: none;
     text-decoration: none;
+}
+.photo {
+    width: 100%;
+}
+
+#photo {
+    width: 100%;
 }

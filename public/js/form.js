@@ -10,6 +10,7 @@ $(document).ready(function(){
         ru: {name : '', title: '', text : ''},
         ua: {name : '', title: '', text : ''}
     };
+    var file = '';
 
     //Очищает и выводит новый список экспонатов
     function show_list(){
@@ -70,12 +71,12 @@ $(document).ready(function(){
 
     // Показываем форму которая будет иметь id экспоната
     function show_form(id=''){
-        $('#form').css('display','block');
+        $('form').css('display','block');
         $("form").attr('id', id);
         change_form('ru');
     }
     function hide_form(){
-        $('#form').css('display','none');
+        $('form').css('display','none');
     }
 
     //Получаем данные в форму и в зависимосьти от языка
@@ -129,7 +130,7 @@ $(document).ready(function(){
         $.ajax({
             url: "api/exhibit/"+id,
             type: "PATCH",
-            data: {locale: locale},
+            data: {'locale': locale},
             success: function(data){
                 show_list();
                 hide_form();
@@ -194,8 +195,28 @@ $(document).ready(function(){
         }
     }
 
-    // Обраьотка загрузки изображения
+    // Обработка загрузки изображения
     $("#imgInpt").change(function(){
         readURL(this);
+        add_file();
     });
+
+    // добавляем новый файл
+    function add_file(){
+        // получаем форму и картинку оттуда
+        var form = $('form').get(0);
+        file = new FormData(form);
+        id = $('form').attr('id');
+        $.ajax({
+            url: '/api/test/'+id,
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: file,
+            success: function(data){
+                return true;
+            }
+        });
+    }
+
 });

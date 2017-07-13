@@ -27,7 +27,6 @@
             </div>
         </div>
         <div class="container-fluid">
-
             <div class="row">
                 <div id="form" class="col-md-6 col-md-offset-5">
                     <form>
@@ -49,7 +48,7 @@
                                 <img id="photo" src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
                             </div>
                             <label>Загрузить фото</label>
-                            <input  id="imgInpt" type="file" class="form-control-file"/>
+                            <input  id="imgInpt" type="file" name="image" class="form-control-file"/>
                         </div>
                         <div class="form-group">
                             <label>Текст статьи</label>
