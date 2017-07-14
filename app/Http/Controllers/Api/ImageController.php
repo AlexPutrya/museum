@@ -28,7 +28,9 @@ class ImageController extends Controller {
     // Удаление изображения привязаного к экспонату и пути
     public function delete($id){
         $exhibit = Exhibits::find($id);
-        Storage::delete($exhibit->img_path);
+        if($exhibit->img_path != null){
+            Storage::delete($exhibit->img_path);
+        }
         $exhibit->img_path = "";
         $exhibit->save();
         return response('', 204);

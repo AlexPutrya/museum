@@ -45,7 +45,8 @@
                         </div>
                         <div id="photo-block" class="form-group">
                             <div class="photo">
-                                <img id="photo" src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
+                                <img id="photo" src="" alt="" class="img-thumbnail"/>
+                                <a id="delete-photo" title="Удалить" href=""><span class="glyphicon glyphicon-remove"></span></a>
                             </div>
                             <label>Загрузить фото</label>
                             <input  id="imgInpt" type="file" name="image" class="form-control-file"/>

@@ -69,7 +69,9 @@ class ExhibitsController extends Controller {
     // Удаляем экспонат файл изображения привязанный к нему
     public function delete($id){
         $exhibit = Exhibits::find($id);
-        Storage::delete('public'.$exhibit->img_path);
+        if($exhibit->img_path != null){
+            Storage::delete('public'.$exhibit->img_path);
+        }
         $exhibit->text()->delete();
         $exhibit->delete();
         return response('', 204);
