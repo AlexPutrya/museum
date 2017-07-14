@@ -10,7 +10,6 @@ $(document).ready(function(){
         ru: {name : '', title: '', text : ''},
         ua: {name : '', title: '', text : ''}
     };
-    var file = '';
 
     //Очищает и выводит новый список экспонатов
     function show_list(){
@@ -115,6 +114,8 @@ $(document).ready(function(){
                 clear_form();
                 show_list();
                 show_form(data.id);
+                show_no_image();
+                clear_file_input();
             },
             error: function(){
 
@@ -150,13 +151,15 @@ $(document).ready(function(){
             url: "api/exhibit/"+id,
             type: "GET",
             success: function(data){
-                $.each(data, function(key, value){
+                $.each(data.text, function(key, value){
                     locale[value.lang]['title'] = value.title;
                     locale[value.lang]['name'] = value.name;
                     locale[value.lang]['text'] = value.text;
                     change_form(value.lang);
                 });
-                show_form(data[0].exhibit_id);
+                show_form(data['text'][0].exhibit_id);
+                show_image(data.img_path);
+                clear_file_input();
             },
             error: function(){
 
@@ -201,14 +204,14 @@ $(document).ready(function(){
         add_file();
     });
 
-    // добавляем новый файл
+    // отправляем изображение на сервер
     function add_file(){
-        // получаем форму и картинку оттуда
+        // получаем обьект формы и вытягиваем фал картинки
         var form = $('form').get(0);
-        file = new FormData(form);
+        var file = new FormData(form);
         id = $('form').attr('id');
         $.ajax({
-            url: '/api/test/'+id,
+            url: '/api/exhibit/'+id+'/image',
             type: "POST",
             processData: false,
             contentType: false,
@@ -217,6 +220,27 @@ $(document).ready(function(){
                 return true;
             }
         });
+    }
+
+    // показать изображение
+    function show_image(path){
+        if(path){
+            $("#photo").attr('src', path);
+        }else{
+            show_no_image();
+        }
+    }
+
+    // Заглушка для фотографии
+    function show_no_image(){
+        $("#photo").attr('src', '/img/no_photo.png');
+    }
+
+    // очитка инпута для файла
+    function clear_file_input(){
+        $("#imgInpt").val(null);
+        // $("#imgInpt").remove();
+        // $("#photo-block").append('<input  id="imgInpt" type="file" name="image" class="form-control-file"/>');
     }
 
 });

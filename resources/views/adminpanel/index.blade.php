@@ -43,7 +43,7 @@
                             <label> Заголовок </label>
                             <input id="title" lang="" type="text" class="form-control exhibit-info" placeholder="Заголовок для страиницы с экспонатом"/>
                         </div>
-                        <div class="form-group">
+                        <div id="photo-block" class="form-group">
                             <div class="photo">
                                 <img id="photo" src="{{asset('/img/no_photo.png')}}" alt="" class="img-thumbnail"/>
                             </div>

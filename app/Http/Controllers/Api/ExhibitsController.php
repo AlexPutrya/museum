@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Exhibits;
 use App\Texts;
 
@@ -23,7 +24,8 @@ class ExhibitsController extends Controller {
     //Получть тексты экспоната
     public function get_exhibit($id){
         $exhibit = Exhibits::find($id);
-        return $exhibit->text()->get();
+        // return $exhibit->text()->get();
+        return response(['text'=>$exhibit->text()->get(), 'img_path'=>$exhibit->img_path]);
     }
 
     // Изменяем видимость экспонат
@@ -64,9 +66,10 @@ class ExhibitsController extends Controller {
         return response('', 200);
     }
 
-    // Удаляем экспонат
+    // Удаляем экспонат файл изображения привязанный к нему
     public function delete($id){
         $exhibit = Exhibits::find($id);
+        Storage::delete('public'.$exhibit->img_path);
         $exhibit->text()->delete();
         $exhibit->delete();
         return response('', 204);

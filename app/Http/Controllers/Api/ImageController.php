@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 use App\Exhibits;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller {
 
@@ -20,6 +21,16 @@ class ImageController extends Controller {
                     $exhibit->save();
                 }
             }
+            return response('', 200);
         }
+    }
+
+    // Удаление изображения привязаного к экспонату и пути
+    public function delete($id){
+        $exhibit = Exhibits::find($id);
+        Storage::delete($exhibit->img_path);
+        $exhibit->img_path = "";
+        $exhibit->save();
+        return response('', 204);
     }
 }
