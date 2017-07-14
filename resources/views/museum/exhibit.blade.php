@@ -1,4 +1,4 @@
-@extends ('layouts.app')
+@extends ('layouts.museum')
 
 @section('main')
     <div class="row">

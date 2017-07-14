@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.museum')
 
 @section('main')
     @parent
@@ -28,11 +28,10 @@
         </div>
     </div>
     <div class="row exhibits">
-        {{-- <h2>Экспонаты</h2> --}}
-        <div class="col-md-4"><img src="{{asset('/img/ex1.jpg')}}" class="img-responsive img-thumbnail" alt=""></div>
-        <div class="col-md-4"><img src="{{asset('/img/ex2.jpg')}}" class="img-responsive img-thumbnail" alt=""></div>
-        <div class="col-md-4"><img src="{{asset('/img/ex3.jpg')}}" class="img-responsive img-thumbnail" alt=""></div>
-    </div>
+        <h2>Экспонаты</h2>
+        @foreach ($exhibits as $exhibit)
+            <div class="col-md-4"><img src="{{asset($exhibit->img_path)}}" class="img-responsive img-thumbnail" alt=""></div>
+        @endforeach
     <div id="map">
         {{--тут будет карта  --}}
     </div>
