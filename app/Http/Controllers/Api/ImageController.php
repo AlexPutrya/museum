@@ -29,10 +29,12 @@ class ImageController extends Controller {
     public function delete($id){
         $exhibit = Exhibits::find($id);
         if($exhibit->img_path != null){
-            Storage::delete($exhibit->img_path);
+            Storage::delete('public'.$exhibit->img_path);
+            $exhibit->img_path = "";
+            $exhibit->save();
+            return response('', 204);
+        }else{
+            return response ("Изображение не найдено", 404);
         }
-        $exhibit->img_path = "";
-        $exhibit->save();
-        return response('', 204);
     }
 }

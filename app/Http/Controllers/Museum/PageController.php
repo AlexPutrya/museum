@@ -34,11 +34,5 @@ class PageController extends Controller {
                 }
             }
         }
-        // $exhibit = Exhibits::find($id);
-        // return $exhibit->text()->get();
-        // $exhibit = Exhibits::find($id);
-        // $exhibit->text()->delete();
-        // $exhibit->delete();
-        // return response('', 204);
     }
 }

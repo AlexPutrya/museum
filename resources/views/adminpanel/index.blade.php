@@ -17,9 +17,9 @@
         <div class="sidebar">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ route('main') }}" target="_blank">На сайт</a>
+                    <a href="{{ route('main') }}" target="_blank"><span class="glyphicon glyphicon-home"></span></a>
                     <h2>Экспонаты</h2>
-                    <button  id="create" class="btn btn-block btn-info btn-m"> Новый экспонат</button>
+                    <button  id="create" class="btn btn-block btn-info btn-m"> <span class="glyphicon glyphicon-plus"></span> Новый экспонат</button>
                     <ul  id="exhibits_list" class="list-group">
                         {{-- выводим список экспонатов jquery  --}}
                     </ul>

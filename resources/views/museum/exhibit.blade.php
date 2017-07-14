@@ -3,7 +3,7 @@
 @section('main')
     <div class="row">
         <h2>{{ $info->title }}</h2>
-        <div id="exhibit-photo" class="col-md-6">
+        <div id="exhibit-photo" class="col-md-8 col-md-offset-2">
             <img class="img-responsive img-thumbnail" src="{{$img_path}}" alt="">
         </div>
     </div>

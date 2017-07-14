@@ -187,6 +187,11 @@ $(document).ready(function(){
         });
     });
 
+    $("#delete-photo").on('click', function(e){
+        e.preventDefault();
+        delete_image();
+    });
+
     // Загрузчик изображения для предпросмотра
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -222,8 +227,21 @@ $(document).ready(function(){
         });
     }
 
+    // Отправка запроса на удаление изображения с сервера
+    function delete_image(){
+        var id = $('form').attr('id');
+        $.ajax({
+            url: "/api/exhibit/"+id+'/image',
+            type: 'DELETE',
+            success: function(){
+                clear_file_input();
+                show_image();
+            }
+        });
+    }
+
     // показать изображение
-    function show_image(path){
+    function show_image(path=null){
         if(path){
             $("#photo").attr('src', path);
         }else{
@@ -239,8 +257,6 @@ $(document).ready(function(){
     // очитка инпута для файла
     function clear_file_input(){
         $("#imgInpt").val(null);
-        // $("#imgInpt").remove();
-        // $("#photo-block").append('<input  id="imgInpt" type="file" name="image" class="form-control-file"/>');
     }
 
 });

@@ -3,6 +3,13 @@ body{
     background-color: white;
 }
 
+.glyphicon-home {
+    position: absolute;
+    font-size: 18px;
+    right: 30px;
+    top: 10px;
+}
+
 h2 {
     text-align: center;
 }
@@ -17,6 +24,7 @@ form {
     display: none;
     background-color: white;
     padding: 10px;
+    margin-bottom: 40px;
 }
 
 .languages {
@@ -49,4 +57,9 @@ a {
     top: 5px;
     right: 10px;
     color: red;
+}
+
+#save {
+    position: absolute;
+    right: 20px;
 }

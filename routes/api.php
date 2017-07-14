@@ -25,3 +25,4 @@ Route::patch('/exhibit/{id}', 'Api\ExhibitsController@edit');
 Route::patch('/exhibit/{id}/visibility', 'Api\ExhibitsController@visibility');
 
 Route::post('/exhibit/{id}/image', 'Api\ImageController@save');
+Route::delete('/exhibit/{id}/image', "Api\ImageController@delete");
