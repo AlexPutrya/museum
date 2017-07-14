@@ -101,3 +101,13 @@ h2 {
 #text {
     margin-bottom: 20px;
 }
+
+.exhibit {
+    margin: 0 auto;
+    width: 90%;
+    background-color: white;
+    height: 500px;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 5px;
+}

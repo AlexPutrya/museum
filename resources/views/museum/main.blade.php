@@ -30,7 +30,15 @@
     <div class="row exhibits">
         <h2>Экспонаты</h2>
         @foreach ($exhibits as $exhibit)
-            <div class="col-md-4"><img src="{{asset($exhibit->img_path)}}" class="img-responsive img-thumbnail" alt=""></div>
+            <div class="col-md-4">
+                <article class="exhibit">
+                    <h4>{{$exhibit['title']}}</h4>
+                    <img src="{{asset($exhibit['img_path'])}}" class="img-responsive img-thumbnail" alt="">
+                    <div class="text">
+                        {{$exhibit['text']}}
+                    </div>
+                </article>
+            </div>
         @endforeach
     <div id="map">
         {{--тут будет карта  --}}

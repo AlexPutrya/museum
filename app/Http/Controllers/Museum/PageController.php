@@ -11,7 +11,17 @@ use Illuminate\Http\Request;
 class PageController extends Controller {
 
     public function main(){
-        $exhibits = Exhibits::where('visibility', 1)->take(3)->get();
+        $data = Exhibits::where('visibility', 1)->take(3)->get();
+        $exhibits = [];
+        $text = '';
+        foreach ($data as $value) {
+            $info = $value->text()->where('lang', App::getLocale())->first();
+            if($info->text != null or $info->text != ''){
+                $text = substr($info->text, 0, 500);
+            }
+            $text .= '...';
+            $exhibits[] = ['img_path'=>$value->img_path, 'title'=>$info->title, 'text'=>$text];
+        }
         return view('museum.main', ['nav_exhibits' => Navbar::categories(), 'exhibits' => $exhibits]);
     }
 
