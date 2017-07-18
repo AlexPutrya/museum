@@ -19,7 +19,7 @@ Route::get('/exhibit/{id}', 'Museum\PageController@exhibit');
 Route::get('lang/{locale}', 'LangController@switchLang')->name('lang');
 
 // Страница админ панели
-Route::get('admin', 'AdminPanel\AdminController')->middleware('guest');
+Route::get('admin', 'AdminPanel\AdminController')->middleware('admin');
 
 Route::get('login', 'Auth\AuthController@login');
 Route::get('logout', 'Auth\AuthController@logout')->name('logout');

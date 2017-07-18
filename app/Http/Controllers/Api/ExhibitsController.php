@@ -25,7 +25,7 @@ class ExhibitsController extends Controller {
     public function get_exhibit($id){
         $exhibit = Exhibits::find($id);
         // return $exhibit->text()->get();
-        return response(['text'=>$exhibit->text()->get(), 'img_path'=>$exhibit->img_path]);
+        return response(['text'=>$exhibit->text()->get(), 'img_path'=>$exhibit->img_path, 'link_3dmodel'=>$exhibit->link_3dmodel]);
     }
 
     // Изменяем видимость экспонат
@@ -55,6 +55,7 @@ class ExhibitsController extends Controller {
     //Редакитуем текст экспонат, пребираем цикл с данными где ключ => язык
     public function edit(Request $request, $id){
         $data = $request->input('locale');
+        $link = $request->input('link_3dmodel');
         $exhibit = Exhibits::find($id);
         foreach ($data as $key => $value) {
             $text = $exhibit->text()->where('lang', $key)->first();
@@ -63,6 +64,8 @@ class ExhibitsController extends Controller {
             $text->name = $data[$key]['name'];
             $text->save();
         }
+        $exhibit->link_3dmodel = $link;
+        $exhibit->save();
         return response('', 200);
     }
 

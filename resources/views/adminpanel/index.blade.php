@@ -9,8 +9,6 @@
         <link rel="stylesheet" href="{{ asset('/css/adminpanel.css')}}">
         <script src="{{ asset('/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/js/bootstrap-toggle.min.js')}}" type="text/javascript"></script>
-        {{-- <script src="{{ asset('/js/create.js')}}" type="text/javascript"></script> --}}
-        {{-- <script src="{{ asset('/js/list.js')}}" type="text/javascript"></script> --}}
         <script src="{{ asset('/js/form.js')}}" type="text/javascript"></script>
     </head>
     <body>
@@ -51,6 +49,10 @@
                             </div>
                             <label>Загрузить фото</label>
                             <input  id="imgInpt" type="file" name="image" class="form-control-file"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Сылка на 3d-модель</label>
+                            <input id="link-3dmodel" type="text" class="form-control exhibit-info"/>
                         </div>
                         <div class="form-group">
                             <label>Текст статьи</label>

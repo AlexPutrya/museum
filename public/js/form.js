@@ -128,10 +128,11 @@ $(document).ready(function(){
     $('body').on('click', '#save', function(e){
         e.preventDefault();
         var id = $('form').attr('id');
+        var link_3dmodel = $('#link-3dmodel').val();
         $.ajax({
             url: "api/exhibit/"+id,
             type: "PATCH",
-            data: {'locale': locale},
+            data: {'locale': locale, 'link_3dmodel': link_3dmodel},
             success: function(data){
                 show_list();
                 hide_form();
@@ -160,6 +161,7 @@ $(document).ready(function(){
                 show_form(data['text'][0].exhibit_id);
                 show_image(data.img_path);
                 clear_file_input();
+                $("#link-3dmodel").val(data.link_3dmodel);
             },
             error: function(){
 
@@ -187,6 +189,7 @@ $(document).ready(function(){
         });
     });
 
+    //Обработчик удаления фото
     $("#delete-photo").on('click', function(e){
         e.preventDefault();
         delete_image();

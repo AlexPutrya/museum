@@ -18,6 +18,7 @@ class CreateExhibitsTable extends Migration
         Schema::create('exhibits',function (Blueprint $table){
             $table->increments('id');
             $table->string('img_path')->nullable();
+            $table->string('link_3dmodel')->nullable();
             $table->string('panorama_path')->nullable();
             $table->boolean('visibility')->default(self::VISIBILITY_ON);
         });

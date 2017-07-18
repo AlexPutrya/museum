@@ -29,7 +29,7 @@ class PageController extends Controller {
         $lang = App::getLocale();
         $exhibit = Exhibits::find($id);
         $info = $exhibit->text()->where('lang', $lang)->first();
-        return view('museum.exhibit', ['nav_exhibits' => Navbar::categories(), 'info' => $info, 'img_path'=>$exhibit->img_path]);
+        return view('museum.exhibit', ['nav_exhibits' => Navbar::categories(), 'info' => $info, 'img_path'=>$exhibit->img_path, 'link_3dmodel'=>$exhibit->link_3dmodel]);
     }
 
     // public function test(Request $request, $id){
