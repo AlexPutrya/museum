@@ -25,3 +25,15 @@ Route::get('login', 'Auth\AuthController@login');
 Route::get('logout', 'Auth\AuthController@logout')->name('logout');
 Route::post('authenticate', 'Auth\AuthController@authenticate')->name('authenticate');
 Route::post('create', 'Auth\AuthController@create')->name('create');
+
+Route::group(['prefix'=>'api', 'middleware'=>['admin']], function(){
+    Route::get('/exhibits', 'Api\ExhibitsController@get_exhibits');
+    Route::get('/exhibit/{id}', 'Api\ExhibitsController@get_exhibit');
+    Route::post('/exhibit', 'Api\ExhibitsController@create');
+    Route::delete('/exhibit/{id}', 'Api\ExhibitsController@delete');
+    Route::patch('/exhibit/{id}', 'Api\ExhibitsController@edit');
+    Route::patch('/exhibit/{id}/visibility', 'Api\ExhibitsController@visibility');
+
+    Route::post('/exhibit/{id}/image', 'Api\ImageController@save');
+    Route::delete('/exhibit/{id}/image', "Api\ImageController@delete");
+});
