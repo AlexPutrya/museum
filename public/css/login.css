@@ -1,0 +1,35 @@
+html{
+    background: url(../img/background.jpg) no-repeat;
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+}
+
+.login-content{
+  margin: 0 auto;
+  width: 400px;
+  height: 350px;
+  text-align: right;
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin:-175px 0 0 -200px;
+}
+h4 {
+  text-align: center;
+}
+.login {
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow:  0 0 10px rgba(0,0,0,0.5);
+  background-color: white;
+}
+
+.logo{
+    width: 150px;
+}

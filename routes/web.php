@@ -19,4 +19,9 @@ Route::get('/exhibit/{id}', 'Museum\PageController@exhibit');
 Route::get('lang/{locale}', 'LangController@switchLang')->name('lang');
 
 // Страница админ панели
-Route::get('admin', 'AdminPanel\AdminController');
+Route::get('admin', 'AdminPanel\AdminController')->middleware('guest');
+
+Route::get('login', 'Auth\AuthController@login');
+Route::get('logout', 'Auth\AuthController@logout')->name('logout');
+Route::post('authenticate', 'Auth\AuthController@authenticate')->name('authenticate');
+Route::post('create', 'Auth\AuthController@create')->name('create');
