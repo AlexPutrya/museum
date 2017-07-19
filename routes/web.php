@@ -13,7 +13,7 @@
 
 Route::get('/', 'Museum\PageController@main')->name('main');
 
-Route::get('/exhibit/{id}', 'Museum\PageController@exhibit');
+Route::get('/exhibit/{id}', 'Museum\PageController@exhibit')->name('exhibit');
 
 // Изменение локали
 Route::get('lang/{locale}', 'LangController@switchLang')->name('lang');

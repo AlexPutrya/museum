@@ -41,6 +41,9 @@
                     <img src="{{asset($exhibit['img_path'])}}" class="img-responsive img-thumbnail" alt="">
                     <div class="text">
                         {{$exhibit['text']}}
+                        <div class="btn btn-sm btn-default">
+                            <a href="{{ route('exhibit', ['id'=>$exhibit['id']]) }}">Читать дальше -></a>
+                        </div>
                     </div>
                 </article>
             </div>
