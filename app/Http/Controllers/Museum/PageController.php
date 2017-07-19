@@ -28,8 +28,11 @@ class PageController extends Controller {
     public function exhibit($id){
         $lang = App::getLocale();
         $exhibit = Exhibits::find($id);
-        $info = $exhibit->text()->where('lang', $lang)->first();
-        return view('museum.exhibit', ['nav_exhibits' => Navbar::categories(), 'info' => $info, 'img_path'=>$exhibit->img_path, 'link_3dmodel'=>$exhibit->link_3dmodel]);
+        if($exhibit != null){
+            $info = $exhibit->text()->where('lang', $lang)->first();
+            return view('museum.exhibit', ['nav_exhibits' => Navbar::categories(), 'info' => $info, 'img_path'=>$exhibit->img_path, 'link_3dmodel'=>$exhibit->link_3dmodel]);
+        }
+        abort(404);
     }
 
     // public function test(Request $request, $id){

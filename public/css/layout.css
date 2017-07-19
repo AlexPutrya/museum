@@ -111,3 +111,9 @@ h2 {
     text-align: center;
     border-radius: 5px;
 }
+
+.model-3d {
+    background: url('../img/3dmodel_background.jpg') no-repeat;
+    background-size: 100%;
+    background-color: black;
+}

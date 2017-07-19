@@ -14,12 +14,14 @@
         <div id="text" class="col-md-8 col-md-offset-2">
             {!! nl2br($info->text) !!}
         </div>
-        {{-- Блок 3D модели экспоната --}}
-        @if ($link_3dmodel)
-            <div id="text" class="col-md-8 col-md-offset-2">
-                <h3>3D модель</h3>
-                <iframe src="{{ $link_3dmodel}}" seamless="" allowfullscreen="" webkitallowfullscreen="" width="100%" height="480px" frameborder="0">
-            </div>
-        @endif
     </div>
+        {{-- Блок 3D модели экспоната --}}
+    @if ($link_3dmodel)
+        <div class="row">
+            <div id="model-3d" >
+                <h3>3D модель</h3>
+                <iframe class="model-3d" src="{{ $link_3dmodel}}" seamless="" allowfullscreen="" webkitallowfullscreen="" width="100%" height="480px" frameborder="0"></iframe>
+            </div>
+        </div>
+    @endif
 @endsection
