@@ -28,7 +28,7 @@ class PageController extends Controller {
     public function exhibit($id){
         $lang = App::getLocale();
         $exhibit = Exhibits::find($id);
-        if($exhibit != null){
+        if($exhibit != null AND $exhibit->visibility == 1){
             $info = $exhibit->text()->where('lang', $lang)->first();
             return view('museum.exhibit', ['nav_exhibits' => Navbar::categories(), 'info' => $info, 'img_path'=>$exhibit->img_path, 'link_3dmodel'=>$exhibit->link_3dmodel]);
         }
