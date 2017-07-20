@@ -1,5 +1,6 @@
 body {
     font-family: sans-serif;
+    background-color: white;
 }
 /*на всю ширину страиницы*/
 .container-fluid {
@@ -17,9 +18,14 @@ body {
     display: inline;
 }
 
+.logo {
+    width: 15%;
+    position: absolute;
+    left: 10%;
+}
 /*Навигация*/
 .menu {
-    height: 30px;
+    height: 100px;
 }
 .header-nav{
     position: absolute;
@@ -57,9 +63,39 @@ ul.submenu > li > a {
     text-decoration: none;
 }
 
+.banner {
+    position: relative;
+}
 .main-banner {
     width: 100%;
 }
+
+.title-banner {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 40%;
+}
+
+.banner h1 {
+    font-size: 70px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+#info{
+    background-color: black;
+    color: white;
+}
+#info div {
+    padding: 0;
+}
+#info h2 {
+    text-decoration: underline;
+}
+
 /*Карта*/
 #map {
     width: 100%;
@@ -103,13 +139,28 @@ h2 {
 }
 
 .exhibit {
+    position: relative;
     margin: 0 auto;
-    width: 90%;
-    background-color: white;
-    height: 500px;
+    width: 95%;
+    background-color: black;
     margin-bottom: 30px;
+    border-radius: 11px;
+    color: white;
+    text-align: right;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+.exhibit img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+.exhibit h4 {
     text-align: center;
-    border-radius: 5px;
+    color: #636b6f;
+}
+
+.text {
+    text-align: left;
+    margin: 20px;
 }
 
 .model-3d {

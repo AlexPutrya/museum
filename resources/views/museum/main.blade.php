@@ -21,7 +21,10 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjzMnNXLIR6GSjpLCaCN2825iF9uFUX6g&callback=initMap"
     async defer></script>
     <div  id="info" class="row">
-        <div class="col-md-12">
+        <div class="col-md-5">
+            <img src="{{asset('/img/planes.jpg')}}" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-7">
             <h2>О музее</h2>
             <p>
                 Полтавский музей дальней авиации открыт 20.06.2007 года.
@@ -37,14 +40,12 @@
         @foreach ($exhibits as $exhibit)
             <div class="col-md-4">
                 <article class="exhibit">
+                    <img src="{{asset($exhibit['img_path'])}}" class="img-responsive img-exhibit" alt="">
                     <h4>{{$exhibit['title']}}</h4>
-                    <img src="{{asset($exhibit['img_path'])}}" class="img-responsive img-thumbnail" alt="">
                     <div class="text">
                         {{$exhibit['text']}}
-                        <div class="btn btn-sm btn-default">
-                            <a href="{{ route('exhibit', ['id'=>$exhibit['id']]) }}">Читать дальше -></a>
-                        </div>
                     </div>
+                    <a href="{{ route('exhibit', ['id'=>$exhibit['id']]) }}">Читать дальше -></a>
                 </article>
             </div>
         @endforeach

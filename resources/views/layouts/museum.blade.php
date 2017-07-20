@@ -4,14 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Музей дальней авиации</title>
-        <link rel="stylesheet" href="{{ asset('/css/app.css')}}">
-        <link rel="stylesheet" href="{{ asset('/css/layout.css')}}">
-        <script src="{{ asset('/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('/js/dropdown.js')}}"></script>
+        <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
+        <script src="{{ asset('/js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/js/dropdown.js') }}"></script>
     </head>
     <body>
         <div class="container-fluid">
             <header>
+                <img class="logo" src="{{asset('/img/logo.png')}}" alt="">
                 <div class="row">
                     <div class="col-md-2">
                         <ul class="languages">
@@ -23,8 +25,8 @@
                     <div class="col-md-4 col-md-offset-3">
                         <p>Музей открыт с 9:00 до 17:00 кроме Пн. и Вт.</p>
                     </div>
-                    <div class="col-md-1">
-                        <p>+38(066)85-34-902</p>
+                    <div class="col-md-2">
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> +38(066)85-34-902</p>
                     </div>
                 </div>
                 <div class="row menu">
@@ -49,8 +51,11 @@
                 </div>
             </header>
             @section('main')
-                <div class="row">
-                    <img class="main-banner" src="{{ asset('/img/main_banner.jpg')}}" alt="">
+                <div class="row banner">
+                    <img class="main-banner" src="{{ asset('/img/banner.jpg')}}" alt="">
+                    <div class="title-banner">
+                        <h1>Музей дальней авиации</h1>
+                    </div>
                 </div>
             @show
             <footer>
@@ -73,13 +78,13 @@
                 </div>
                 <div class="row contacts">
                     <div class="col-md-4 adress">
-                        <p>Авиагородок, ул. Засядько, Полтава, Украина</p>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Авиагородок, ул. Засядько, Полтава, Украина</p>
                     </div>
                     <div class="col-md-2">
-                        <p>+38(066)85-34-902</p>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> +38(066)85-34-902</p>
                     </div>
                     <div class="col-md-3">
-                        <p>poltava_mda@ukr.net</p>
+                        <p><i class="fa fa-envelope" aria-hidden="true"></i> poltava_mda@ukr.net</p>
                     </div>
                 </div>
             </footer>

@@ -10,7 +10,7 @@
         <div class="login-content">
             <form class="login" action="{{ route('authenticate') }}" method="POST">
                 {{ csrf_field() }}
-                <img  class="logo" src="{{asset('/img/logo.jpg')}}" alt="">
+                <img  class="logo" src="{{asset('/img/logo.png')}}" alt="">
                 <h4>Аутентификация</h4>
                 <div class="form-group">
                     <input type="text" class="form-control" name="email" value="" placeholder="логин(email)">
