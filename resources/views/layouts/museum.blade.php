@@ -13,24 +13,37 @@
     <body>
         <div class="container-fluid">
             <header>
-                <img class="logo" src="{{asset('/img/logo.png')}}" alt="">
-                <div class="row">
-                    <div class="col-md-2">
+                <div class="row" id="top-bar">
+                    <img class="logo" src="{{asset('/img/logo.png')}}" alt="">
+                    <div class="col-md-4 lang">
                         <ul class="languages">
                             <li><a href="{{route('lang', ['parametr'=>'en'])}}">EN</a></li>
                             <li><a href="{{route('lang', ['parametr'=>'ru'])}}">RU</a></li>
                             <li><a href="{{route('lang', ['parametr'=>'ua'])}}">UA</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 col-md-offset-3">
-                        <p>Музей открыт с 9:00 до 17:00 кроме Пн. и Вт.</p>
+                    <div class="col-md-8 contacts">
+                        <div class="col-md-6">
+                            Музей открыт с 9:00 до 17:00 кроме Пн. и Вт.
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fa fa-phone" aria-hidden="true"></i> +38(066)85-34-902
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <p><i class="fa fa-phone" aria-hidden="true"></i> +38(066)85-34-902</p>
+                    {{-- <div class="col-md-4 col-md-offset-3">
+                        Музей открыт с 9:00 до 17:00 кроме Пн. и Вт.
                     </div>
+                    <div class="col-md-2 phone">
+                        <div>
+                            <i class="fa fa-phone" aria-hidden="true"></i> +38(066)85-34-902
+                        </div>
+                    </div> --}}
                 </div>
+
                 <div class="row menu">
-                    <div class="col-md-4 col-md-offset-7">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-5 col-md-offset-4 nav">
                         <nav class="header-nav">
                             <ul>
                                 <li><a href="{{ route('main') }}">{{ trans('navigation.main') }}</a></li>
@@ -87,6 +100,7 @@
                         <p><i class="fa fa-envelope" aria-hidden="true"></i> poltava_mda@ukr.net</p>
                     </div>
                 </div>
+                <img class="logo" src="{{asset('/img/logo_inverse.png')}}" alt="">
             </footer>
         </div>
     </body>
