@@ -2,6 +2,7 @@
 
 @section('main')
     @parent
+    {{-- Иницализация карты --}}
     <script type="text/javascript">
     function initMap() {
         // Styles a map in night mode.
@@ -16,16 +17,15 @@
             map: map,
         });
       }
-
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjzMnNXLIR6GSjpLCaCN2825iF9uFUX6g&callback=initMap"
     async defer></script>
-    <div  id="info" class="row">
-        <div class="col-md-5">
-            <img src="{{asset('/img/planes.jpg')}}" class="img-responsive" alt="">
-        </div>
-        <div class="col-md-7">
+
+    <div  id="history" class="row">
+        <img src="{{asset('/img/planes.jpg')}}" class="img-responsive" alt="">
+        <div class="info">
             <h2>О музее</h2>
+            <hr>
             <p>
                 Полтавский музей дальней авиации открыт 20.06.2007 года.
                 В музейную экспозицию вошли 9 самолетов различного назначения
@@ -40,8 +40,11 @@
         @foreach ($exhibits as $exhibit)
             <div class="col-md-4">
                 <article class="exhibit">
+                    <div class="label">
+                        {{$exhibit['name']}}
+                    </div>
                     <img src="{{asset($exhibit['img_path'])}}" class="img-responsive img-exhibit" alt="">
-                    <h4>{{$exhibit['title']}}</h4>
+                    {{-- <h4>{{$exhibit['title']}}</h4> --}}
                     <div class="text">
                         {{$exhibit['text']}}
                     </div>

@@ -20,7 +20,7 @@ class PageController extends Controller {
                 $text = substr($info->text, 0, 500);
             }
             $text .= '...';
-            $exhibits[] = ['img_path'=>$value->img_path, 'title'=>$info->title, 'text'=>$text, 'id'=>$value->id];
+            $exhibits[] = ['img_path'=>$value->img_path, 'title'=>$info->title, 'text'=>$text, 'id'=>$value->id, 'name'=>$info->name];
         }
         return view('museum.main', ['nav_exhibits' => Navbar::categories(), 'exhibits' => $exhibits]);
     }
