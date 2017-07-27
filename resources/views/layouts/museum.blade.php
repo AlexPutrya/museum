@@ -16,19 +16,19 @@
             <header>
                 <div class="row" id="top-bar">
                     <img class="logo" src="{{asset('/img/logo.png')}}" alt="">
-                    <div class="col-md-4 lang">
+                    <div class="lang">
                         <ul>
                             <li><a href="{{route('lang', ['parametr'=>'en'])}}">EN</a></li>
                             <li><a href="{{route('lang', ['parametr'=>'ru'])}}">RU</a></li>
                             <li><a href="{{route('lang', ['parametr'=>'ua'])}}">UA</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-8 contacts">
-                        <div class="col-md-6">
+                    <div class="contacts">
+                        <div class="adress">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             {{ trans('elements.adress') }}
                         </div>
-                        <div class="col-md-4">
+                        <div class="phone">
                             <i class="fa fa-phone" aria-hidden="true"></i> +38(066)85-34-902
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                 </div>
             </header>
             @section('main')
-                <div class="row banner">
+                <div class="banner">
                     <img src="{{ asset('/img/banner.jpg')}}" alt="">
                     <div class="title-banner">
                         <h1 class="animated fadeIn">{{ trans('banner.title') }}</h1>

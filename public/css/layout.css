@@ -18,21 +18,43 @@ h2 {
 }
 /**/
 
-.contacts {
-    background: #000000;
-    position: relative;
-    padding: 10px 0 10px 0;
+header .contacts {
+    /*background: #000000;*/
+    background: url(../img/adress.png) no-repeat;
+    background-size: 100% 100%;
+    float: right;
+    padding: 0 40px 0 40px;
+    margin-right: 150px;
     color: #ffffff;
+}
+header .contacts div{
+    display: inline-block;
+    padding: 10px 0 10px 0;
+}
+
+header .contacts .phone{
+    /*background-color: #3097d1;*/
+    background: url(../img/phone.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 10px 20px 10px 20px;
+    margin-left: 20px;
 }
 
 /*Выбор языка*/
 .lang {
+    float: left;
+    margin-left: 20px;
     padding: 10px 0 10px 0;
+}
+
+.lang ul {
+    padding: 0;
+    margin: 0;
 }
 
 .lang li{
     list-style: none;
-    display: inline;
+    display: inline-block;
 }
 /**/
 
@@ -127,6 +149,10 @@ ul.submenu > li > a {
     -moz-animation-duration: 4s;
     -webkit-animation-duration: 4s;
 }
+
+.another-banner-text {
+    font-size: 15px;
+}
 /**/
 
 
@@ -170,15 +196,6 @@ ul.submenu > li > a {
 footer {
     background-color: black;
     position: relative;
-}
-
-/*Кнопки соц сетей*/
-.social li{
-    display: inline-block;
-    margin: 0 5px 0 5px;
-    list-style: none;
-    text-transform: uppercase;
-    font-family: sans-serif;
 }
 
 .footer-nav {
@@ -242,4 +259,20 @@ footer {
     background: url('../img/3dmodel_background.jpg') no-repeat;
     background-size: 100%;
     background-color: black;
+}
+
+
+
+#ex-ban {
+    width: 100%;
+}
+.line {
+    text-align: center;
+    background-color: #000000;
+    padding: 10px 0 10px 0;
+}
+.line h4{
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
 }
