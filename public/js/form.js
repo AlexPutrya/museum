@@ -11,6 +11,8 @@ $(document).ready(function(){
         ua: {name : '', title: '', text : ''}
     };
 
+    var editor = CKEDITOR.replace('editor');
+
     //Очищает и выводит новый список экспонатов
     function show_list(){
         $.ajax({
@@ -60,14 +62,6 @@ $(document).ready(function(){
         });
     }
 
-    // Переключатель языка, получаем абревиатуру и передаем в функцию изменения формы
-    $(".lang").click(function(e){
-        e.preventDefault();
-        $(".lang").css({color: "#3097d1"});
-        $(this).css({color: 'black'});
-        change_form($(this).attr('id'));
-    });
-
     // Показываем форму которая будет иметь id экспоната
     function show_form(id=''){
         $('form').css('display','block');
@@ -81,10 +75,13 @@ $(document).ready(function(){
     //Получаем данные в форму и в зависимосьти от языка
     // задаем атрибут с абревиатурой языка
     function change_form(lang){
+        // выделяем данный язык на переключателе
+        $(".switch-lang").css({color: "#3097d1"});
+        $('.switch-lang[lang="'+lang+'"]').css({color: 'black'});
         $("#name").val(locale[lang].name);
         $("#title").val(locale[lang].title);
-        $("#text").val(locale[lang].text);
-        $("#name, #title, #text").attr('lang', lang);
+        editor.setData(locale[lang].text);
+        $("#name, #title, form").attr('lang', lang);
     }
     // очищаем перменныые и формы
     function clear_form(){
@@ -97,12 +94,87 @@ $(document).ready(function(){
         $('.exhibit-info').val('');
     }
 
+    // отправляем изображение на сервер
+    function add_file(){
+        // получаем обьект формы и вытягиваем фал картинки
+        var form = $('form').get(0);
+        var file = new FormData(form);
+        id = $('form').attr('id');
+        $.ajax({
+            url: '/api/exhibit/'+id+'/image',
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: file,
+            success: function(data){
+                return true;
+            }
+        });
+    }
+
+    // Отправка запроса на удаление изображения с сервера
+    function delete_image(){
+        var id = $('form').attr('id');
+        $.ajax({
+            url: "/api/exhibit/"+id+'/image',
+            type: 'DELETE',
+            success: function(){
+                clear_file_input();
+                show_image();
+            }
+        });
+    }
+
+    // показать изображение
+    function show_image(path=null){
+        if(path){
+            $("#photo").attr('src', path);
+        }else{
+            show_no_image();
+        }
+    }
+
+    // Заглушка для фотографии
+    function show_no_image(){
+        $("#photo").attr('src', '/img/no_photo.png');
+    }
+
+    // очитка инпута для файла
+    function clear_file_input(){
+        $("#imgInpt").val(null);
+    }
+
+    // Загрузчик изображения для предпросмотра
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#photo').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // Переключатель языка, получаем абревиатуру и передаем в функцию изменения формы
+    $(".switch-lang").click(function(e){
+        e.preventDefault();
+        // $(".switch-lang").css({color: "#3097d1"});
+        // $(this).css({color: 'black'});
+        change_form($(this).attr('lang'));
+    });
+
     //Данные из полей записываются в переменную
     $('body').on('change', ".exhibit-info", function(){
         var lang = $(this).attr('lang');
         var type = $(this).attr('id');
         locale[lang][type] = $(this).val();
     })
+
+    // Данные из редактора текста
+    editor.on( 'change', function(e) {
+        var language = $('form').attr('lang');
+        locale[language]['text'] = e.editor.getData();
+     });
 
     //Создаем экспонат
     $('body').on('click', '#create', function(e){
@@ -195,71 +267,10 @@ $(document).ready(function(){
         delete_image();
     });
 
-    // Загрузчик изображения для предпросмотра
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#photo').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
     // Обработка загрузки изображения
     $("#imgInpt").change(function(){
         readURL(this);
         add_file();
     });
-
-    // отправляем изображение на сервер
-    function add_file(){
-        // получаем обьект формы и вытягиваем фал картинки
-        var form = $('form').get(0);
-        var file = new FormData(form);
-        id = $('form').attr('id');
-        $.ajax({
-            url: '/api/exhibit/'+id+'/image',
-            type: "POST",
-            processData: false,
-            contentType: false,
-            data: file,
-            success: function(data){
-                return true;
-            }
-        });
-    }
-
-    // Отправка запроса на удаление изображения с сервера
-    function delete_image(){
-        var id = $('form').attr('id');
-        $.ajax({
-            url: "/api/exhibit/"+id+'/image',
-            type: 'DELETE',
-            success: function(){
-                clear_file_input();
-                show_image();
-            }
-        });
-    }
-
-    // показать изображение
-    function show_image(path=null){
-        if(path){
-            $("#photo").attr('src', path);
-        }else{
-            show_no_image();
-        }
-    }
-
-    // Заглушка для фотографии
-    function show_no_image(){
-        $("#photo").attr('src', '/img/no_photo.png');
-    }
-
-    // очитка инпута для файла
-    function clear_file_input(){
-        $("#imgInpt").val(null);
-    }
 
 });

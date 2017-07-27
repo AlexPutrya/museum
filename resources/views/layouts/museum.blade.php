@@ -8,10 +8,8 @@
         <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/animate.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
-        <link rel="stylesheet" href="{{ asset('/css/slick.css') }}">
         <script src="{{ asset('/js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('/js/dropdown.js') }}"></script>
-        <script src="{{ asset('/js/slick.js') }}"></script>
     </head>
     <body>
         <div class="container-fluid">

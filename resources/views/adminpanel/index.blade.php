@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ asset('/css/adminpanel.css')}}">
         <script src="{{ asset('/js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/js/bootstrap-toggle.min.js')}}" type="text/javascript"></script>
+        <script src="{{ asset('/js/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
         <script src="{{ asset('/js/form.js')}}" type="text/javascript"></script>
     </head>
     <body>
@@ -28,11 +29,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div id="form" class="col-md-6 col-md-offset-5">
-                    <form>
+                    <form lang=''>
                         <ul class="languages">
-                            <li><a class="lang" id="en" href="">en</a></li>
-                            <li><a class="lang" id="ru" href="">ru</a></li>
-                            <li><a class="lang" id="ua" href="">ua</a></li>
+                            <li><a class="switch-lang" lang='en' href="">en</a></li>
+                            <li><a class="switch-lang" lang='ru' href="">ru</a></li>
+                            <li><a class="switch-lang" lang='ua' href="">ua</a></li>
                         </ul>
                         <div class="form-group">
                             <label> Название </label>
@@ -56,7 +57,8 @@
                         </div>
                         <div class="form-group">
                             <label>Текст статьи</label>
-                            <textarea id="text"  lang=""  class="form-control exhibit-info" rows="15"></textarea>
+                            {{-- <textarea id="text"  lang=""  class="form-control exhibit-info" rows="15"></textarea> --}}
+                            <textarea name="name" lang="" id="editor"></textarea>
                         </div>
                         <button id="save" type="button" name="button">Сохранить</button>
                     </form>
