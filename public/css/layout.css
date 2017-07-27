@@ -216,6 +216,7 @@ footer {
     position: relative;
     margin: 0 auto;
     width: 95%;
+    min-height: 550px;
     background-color: black;
     margin-bottom: 30px;
     border-radius: 11px;

@@ -3,13 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Музей дальней авиации</title>
+        <title>{{ trans('tags.title')}}</title>
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/animate.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
+        <link rel="stylesheet" href="{{ asset('/css/slick.css') }}">
         <script src="{{ asset('/js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('/js/dropdown.js') }}"></script>
+        <script src="{{ asset('/js/slick.js') }}"></script>
     </head>
     <body>
         <div class="container-fluid">
@@ -25,7 +27,8 @@
                     </div>
                     <div class="col-md-8 contacts">
                         <div class="col-md-6">
-                            Музей открыт с 9:00 до 17:00 кроме Пн. и Вт.
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            {{ trans('elements.adress') }}
                         </div>
                         <div class="col-md-4">
                             <i class="fa fa-phone" aria-hidden="true"></i> +38(066)85-34-902
@@ -60,8 +63,8 @@
                 <div class="row banner">
                     <img src="{{ asset('/img/banner.jpg')}}" alt="">
                     <div class="title-banner">
-                        <h1 class="animated fadeIn">Музей дальней авиации</h1>
-                        <p class="animated fadeIn">Здесь вы сможете увидеть самолеты Ту-95 и Ту-160, которых нет ни в одном музее мира</p>
+                        <h1 class="animated fadeIn">{{ trans('banner.title') }}</h1>
+                        <p class="animated fadeIn">{{ trans('banner.text')}}</p>
                     </div>
                 </div>
             @show
@@ -80,7 +83,7 @@
                 </div>
                 <div class="row contacts">
                     <div class="col-md-4 adress">
-                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Авиагородок, ул. Засядько, Полтава, Украина</p>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ trans('elements.adress') }}</p>
                     </div>
                     <div class="col-md-2">
                         <p><i class="fa fa-phone" aria-hidden="true"></i> +38(066)85-34-902</p>

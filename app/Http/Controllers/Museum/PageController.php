@@ -18,10 +18,13 @@ class PageController extends Controller {
             $info = $value->text()->where('lang', App::getLocale())->first();
             if($info->text != null or $info->text != ''){
                 $text = substr($info->text, 0, 500);
+                $text .= '...';
+            }else{
+                $text = '...';
             }
-            $text .= '...';
             $exhibits[] = ['img_path'=>$value->img_path, 'title'=>$info->title, 'text'=>$text, 'id'=>$value->id, 'name'=>$info->name];
         }
+        // return var_dump($exhibits[2]['text']);
         return view('museum.main', ['nav_exhibits' => Navbar::categories(), 'exhibits' => $exhibits]);
     }
 

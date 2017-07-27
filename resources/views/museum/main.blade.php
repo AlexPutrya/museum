@@ -24,7 +24,7 @@
     <div  id="history" class="row">
         <img src="{{asset('/img/planes.jpg')}}" class="img-responsive" alt="">
         <div class="info">
-            <h2>О музее</h2>
+            <h2>{{ trans('elements.about')}}</h2>
             <hr>
             <p>
                 Полтавский музей дальней авиации открыт 20.06.2007 года.
@@ -52,6 +52,7 @@
                 </article>
             </div>
         @endforeach
+    </div>
     <div id="map">
         {{--тут будет карта  --}}
     </div>
